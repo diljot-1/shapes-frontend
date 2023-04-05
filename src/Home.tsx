@@ -9,9 +9,11 @@ import Sphere3D from "./Sphere";
 
 function Home() {
   const [value, setValue] = useState<number>(3);
+  const [multiValuesGenerated, setMultiValuesGenerated] = useState<boolean>(false);
   const [autoRotate, setAutoRotate] = useState<boolean>(false)
 
   function generateRandomValue(): void {
+    setMultiValuesGenerated(true)
     const ws = new WebSocket('ws://localhost:6789');
     ws.onopen = () =>{
     }
@@ -25,8 +27,9 @@ function Home() {
   }
 
   function generateSingleRandom(): void {
-    let temp = Math.random() * (4.5-0.1) + 0.1
-    setValue(temp)
+    let temp = (Math.random() * (4.5-0.1) + 0.1).toFixed(2)
+    setValue(parseFloat(temp))
+    setMultiValuesGenerated(false)
   }
 
   return (
@@ -42,13 +45,13 @@ function Home() {
         <button className="generate-button" title="Generates float values between 0 to 5" onClick={generateSingleRandom}>
           Generate single random value
         </button>
-        <div className="single-generator-text">Current value is {value}</div>
+        {!multiValuesGenerated && <div className="single-generator-text">Current value is {value}</div>}
         </div>
         <button className="generate-button" onClick={handleAutoRotate}>
           Auto Rotate All
         </button>
       </div>
-      <Canvas className="container" style={{ height: "300px" }}>
+      <Canvas className="container" style={{ height: "320px" }}>
         <Cube value={value} autoRotate={autoRotate}/>
       </Canvas>
       <Canvas className="container" style={{ height: "300px" }}>
