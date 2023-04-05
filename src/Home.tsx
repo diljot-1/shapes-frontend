@@ -38,9 +38,12 @@ function Home() {
         <button className="generate-button" title="Generates float values between 0 to 5" onClick={generateRandomValue}>
           Generate values via web-socket
         </button>
+        <div className="single-generator">
         <button className="generate-button" title="Generates float values between 0 to 5" onClick={generateSingleRandom}>
           Generate single random value
         </button>
+        <div className="single-generator-text">Current value is {value}</div>
+        </div>
         <button className="generate-button" onClick={handleAutoRotate}>
           Auto Rotate All
         </button>

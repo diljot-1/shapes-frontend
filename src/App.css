@@ -11,6 +11,18 @@
   height: 150vh;
 }
 
+.single-generator-text{
+  margin-left: 2.4em;
+  font-size: 22px;
+  color: 'white' !important;
+}
+
+.single-generator{
+  display: 'flex' !important; 
+  flex-direction: 'column' !important;
+  color: white !important;
+}
+
 .good-ai-logo{
   width: 8em;
   padding: 2em;
