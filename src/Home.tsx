@@ -14,10 +14,8 @@ function Home() {
   function generateRandomValue(): void {
     const ws = new WebSocket('ws://localhost:6789');
     ws.onopen = () =>{
-      console.log('o[pen')
     }
     ws.onmessage = (event) => {
-      console.log(event.data[0])
       setValue(event.data[0])
     }
   }
@@ -28,7 +26,6 @@ function Home() {
 
   function generateSingleRandom(): void {
     let temp = Math.random() * (4.5-0.1) + 0.1
-    console.log(temp)
     setValue(temp)
   }
 
@@ -54,7 +51,7 @@ function Home() {
       <Canvas className="container" style={{ height: "300px" }}>
         <Cylinder autoRotate={autoRotate} value={value}/>
       </Canvas>
-      <Canvas className="container" style={{ height: "300px" }}>
+      <Canvas className="container" style={{ height: "320px" }}>
         <Sphere3D autoRotate={autoRotate} value={value}/>
       </Canvas>
     </div>

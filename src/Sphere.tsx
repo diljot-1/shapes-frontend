@@ -16,7 +16,7 @@ function Sphere3D(props: ShapeInterface) {
         <sphereGeometry attach="geometry" args={[props.value, 32, 32]} />
         <meshLambertMaterial attach="material"  color="red" flatShading={true}/>
         <Edges
-    scale={1.1} // Display edges only when the angle between two faces exceeds this value (default=15 degrees)
+    scale={1.1} 
     color="white"
   />
       </mesh>
