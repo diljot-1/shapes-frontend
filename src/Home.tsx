@@ -26,6 +26,11 @@ function Home() {
     setAutoRotate(current => !current)
   }
 
+  function generateSingleRandom(): void {
+    let temp = Math.random() * (4.5-0.1) + 0.1
+    console.log(temp)
+    setValue(temp)
+  }
 
   return (
     <div className="dashboard site-content">
@@ -36,6 +41,9 @@ function Home() {
         <button className="generate-button" title="Generates float values between 0 to 5" onClick={generateRandomValue}>
           Generate values via web-socket
         </button>
+        <button className="generate-button" title="Generates float values between 0 to 5" onClick={generateSingleRandom}>
+          Generate single random value
+        </button>
         <button className="generate-button" onClick={handleAutoRotate}>
           Auto Rotate All
         </button>
@@ -44,10 +52,10 @@ function Home() {
         <Cube value={value} autoRotate={autoRotate}/>
       </Canvas>
       <Canvas className="container" style={{ height: "300px" }}>
-        <Cylinder autoRotate={autoRotate} value={0}/>
+        <Cylinder autoRotate={autoRotate} value={value}/>
       </Canvas>
       <Canvas className="container" style={{ height: "300px" }}>
-        <Sphere3D autoRotate={autoRotate} value={0}/>
+        <Sphere3D autoRotate={autoRotate} value={value}/>
       </Canvas>
     </div>
   );

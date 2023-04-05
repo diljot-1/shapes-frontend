@@ -8,7 +8,7 @@ function Cube(props: ShapeInterface) {
   return (
     <>
       <OrbitControls enableZoom={false} autoRotate={props.autoRotate}/>
-      <ambientLight intensity={0.5} color="blue"/>
+      <ambientLight intensity={0.8} color="#AA3A6A"/>
       <directionalLight intensity={1} />
       <mesh rotation={[90, 0, 20]}>
         <boxBufferGeometry attach="geometry"  args={[dim, dim, dim, 3, 3, 3]} />
